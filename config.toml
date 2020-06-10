@@ -1,0 +1,21 @@
+theme = "webstack"
+version = "20.06.09"
+
+# 首页网址
+baseURL = "https://edui.fun"
+# 标题
+title = "Edui.fun"
+
+[params]
+    # 副标题
+    subtitle = "让教学有点意思"
+    # 横条logo
+    logo = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages/images/avatar.png"
+    # logo 图标
+    logoM = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages/images/eduifuns.png"
+    # css和js文件的cdn
+    cdn = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages"
+    # 开启今日诗词
+    jinrishici = "true"
+    # 开启访问量统计
+    busuanzi = "true"
