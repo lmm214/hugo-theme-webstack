@@ -87,6 +87,17 @@
             <br/><br/>
             {{ end }}
 
+            <!-- 最近使用 start -->
+            <div id="recordALL" style="display:none">
+                <h4 class="text-gray"><i class="icon-fire" style="margin-right: 7px;" id="最近使用"></i>最近使用
+                </h4>
+                <div class="row">
+                    <div id="recordItems"></div>
+                </div>
+            </div>
+            <br/>
+            <!-- 最近使用 end -->
+          
             {{ range .Site.Data.links.list }}
             {{if .sub}}
             {{range .sub}}
@@ -255,6 +266,32 @@
         href = $(this).attr("data-tag");
         pos = $(href).position().top - 30;
     });
+
+    //浏览记录
+    var myStorage = 'webstack-'+window.location.hostname.replace(/\./g,'-');//'edui123'
+    var myStorageData = JSON.parse(localStorage.getItem(myStorage)) || [];
+    if(myStorageData.length == 0 ){
+        localStorage.setItem(myStorage, '[]');
+    }else if(myStorageData.length > 0){
+        $('#recordALL').attr("style","display:block")
+        $.each(myStorageData, function(index, value) {
+            $('[data-original-title="'+value+'"]').clone(true).prependTo('#recordItems').wrap('<div class="col-sm-3"></div>');
+        });
+    }
+    $(".xe-widget").on("click", function(){
+        var itemclick = $(this).attr("data-original-title")
+        var dataClick = JSON.parse(localStorage.getItem(myStorage))
+        var indexNum = dataClick.indexOf(itemclick)
+        if(indexNum >= 0 ){
+            dataClick.splice(indexNum,1)
+        }
+        if(dataClick.length == 8 ){
+            dataClick.shift()
+        }
+        dataClick.push(itemclick);
+        localStorage.setItem(myStorage, JSON.stringify(dataClick));
+    })
+      
     </script>	
     <!-- Bottom Scripts -->
 
