@@ -1,10 +1,10 @@
 theme = "webstack"
-version = "20.06.09"
+version = "22.08.07"
 
 # 首页网址
-baseURL = "https://edui.fun"
+baseURL = "https://edui123.com"
 # 标题
-title = "Edui.fun"
+title = "Edui123.com"
 
 [params]
     # 副标题
